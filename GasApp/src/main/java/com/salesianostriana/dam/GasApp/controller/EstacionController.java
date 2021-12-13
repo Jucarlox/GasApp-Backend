@@ -40,5 +40,10 @@ public class EstacionController {
         return estacionService.edit(createdEstacionDTO, id);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Long id){
+        return estacionService.delete(id);
+    }
+
 
 }

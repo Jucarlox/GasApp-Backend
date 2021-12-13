@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "054df63a-51be-4f6c-bdca-ca236f291556",
+		"name": "GasApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener todas las Estaciones de Servicio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estacion de Servicion por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir Estacion de Servicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"\",\r\n    \"marca\": \"REYATAZ\",\r\n    \"ubicacion\": \"-33.9842244,77.23478902\",\r\n    \"tieneAutolavado\": false,\r\n    \"precioGasoilNormal\": -9.2,\r\n    \"precioGasolina95Octanos\": -0.73,\r\n    \"precioGasoilEspecial\": -8.27,\r\n    \"precioGasolina98\": 5.66,\r\n    \"servicios\": \"Electronics\",\r\n    \"fechaApertura\": \"2017-01-13T17:09:42.411\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Estacion de Servicio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"hola\",\r\n    \"marca\": \"REYATAZ\",\r\n    \"ubicacion\": \"33.9842244,77.234234234\",\r\n    \"tieneAutolavado\": false,\r\n    \"precioGasoilNormal\": 9.2,\r\n    \"precioGasolina95Octanos\": 0.73,\r\n    \"precioGasoilEspecial\": 8.27,\r\n    \"precioGasolina98\": 5.66,\r\n    \"servicios\": \"Electronics\",\r\n    \"fechaApertura\": \"2017-01-13T17:09:42.411\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Estacion de Servicion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

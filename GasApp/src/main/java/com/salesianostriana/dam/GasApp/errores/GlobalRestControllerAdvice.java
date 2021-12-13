@@ -33,8 +33,8 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
 
     private final ResponseEntity<Object> buildApiError(Exception ex, WebRequest request) {
         return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body(new ApiError(HttpStatus.BAD_REQUEST, ex.getMessage(), ((ServletWebRequest) request).getRequest().getRequestURI()));
+                .status(HttpStatus.NOT_FOUND)
+                .body(new ApiError(HttpStatus.NOT_FOUND, ex.getMessage(), ((ServletWebRequest) request).getRequest().getRequestURI()));
 
     }
 
