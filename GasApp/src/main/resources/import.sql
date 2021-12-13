@@ -1,0 +1,1 @@
+insert into ESTACION (id, fecha_apertura, marca, nombre, precio_gasoil_especial, precio_gasoil_normal, precio_gasolina95octanos, precio_gasolina98, servicios, tiene_autolavado, ubicacion) values (NEXTVAL('hibernate_sequence'), '2017-01-13T17:09:42.411', 'REYATAZ', '', '8.27', '9.20', '0.73', '5.66', 'Electronics', false, -33.9842244);
