@@ -1,19 +1,20 @@
 package com.salesianostriana.dam.GasApp.dto;
 
+import com.salesianostriana.dam.GasApp.validacion.anotaciones.UbicacionValueMatch;
 import lombok.*;
 
 import javax.persistence.Lob;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Data
+@NoArgsConstructor @AllArgsConstructor
+@UbicacionValueMatch.List({
+        @UbicacionValueMatch(
+                ubicacionField = "ubicacion",
+                message = "{estacion.ubicacion.pattern}"
+        )
+})
 public class CreatedEstacionDTO {
 
     @NotNull(message = "{estacion.nombre.null}")
@@ -23,6 +24,7 @@ public class CreatedEstacionDTO {
     private String marca;
 
     @NotNull(message = "{estacion.ubicacion.null}")
+    //@Pattern(regexp = "^([-+]?\\d{1,2}[.]\\d+),\\s*([-+]?\\d{1,3}[.]\\d+)$",message = "{estacion.ubicacion.pattern}")
     private String ubicacion;
 
     private boolean tieneAutolavado=false;
@@ -46,4 +48,6 @@ public class CreatedEstacionDTO {
 
     @Past
     private LocalDateTime fechaApertura;
+
+
 }

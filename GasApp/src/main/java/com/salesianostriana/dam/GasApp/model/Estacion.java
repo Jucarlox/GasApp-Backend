@@ -54,6 +54,8 @@ public class Estacion {
     @Past
     private LocalDateTime fechaApertura;
 
+    private LocalDateTime fechaRegistro;
+
 
 
 }

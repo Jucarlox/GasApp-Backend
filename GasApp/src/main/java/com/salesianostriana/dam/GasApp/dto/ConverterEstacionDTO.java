@@ -3,6 +3,8 @@ package com.salesianostriana.dam.GasApp.dto;
 import com.salesianostriana.dam.GasApp.model.Estacion;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class ConverterEstacionDTO {
 
@@ -18,6 +20,7 @@ public class ConverterEstacionDTO {
                 .precioGasoilEspecial(createdEstacionDTO.getPrecioGasoilEspecial())
                 .fechaApertura(createdEstacionDTO.getFechaApertura())
                 .servicios(createdEstacionDTO.getServicios())
+                .fechaRegistro(LocalDateTime.now())
                 .build();
 
     }

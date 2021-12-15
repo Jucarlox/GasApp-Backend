@@ -10,10 +10,10 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import static com.fasterxml.jackson.annotation.JsonInclude.*;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 @Builder
 public class ApiError {
 
@@ -26,7 +26,7 @@ public class ApiError {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
     private LocalDateTime fecha = LocalDateTime.now();
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(Include.NON_NULL)
     private List<ApiSubError> subErrores;
 
     public ApiError(HttpStatus estado, String mensaje, String ruta) {
