@@ -21,18 +21,14 @@ import java.time.LocalDateTime;
 )
 @AperturaRegistroValueMatch(
         fechaAperturaField= "fechaApertura",
+        message = "{estacion.fecha}"
 
-        message = "La fecha de apertura no puede ser posterior a la fecha de registro"
 )
 
 @EstacionUniqueValueMatch(
         ubicacionField = "ubicacion",
-
-        message = "No se pueden crear dos Estaciones de Servicio con la misma ubicacion"
+        message = "{estacion.ubicacion.unique}"
 )
-
-
-
 
 public class CreatedEstacionDTO {
 
