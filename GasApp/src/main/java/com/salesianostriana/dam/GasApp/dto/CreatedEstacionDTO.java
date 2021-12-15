@@ -1,20 +1,39 @@
 package com.salesianostriana.dam.GasApp.dto;
 
+import com.salesianostriana.dam.GasApp.validacion.anotaciones.AperturaRegistroValueMatch;
+import com.salesianostriana.dam.GasApp.validacion.anotaciones.EstacionUniqueValueMatch;
 import com.salesianostriana.dam.GasApp.validacion.anotaciones.UbicacionValueMatch;
 import lombok.*;
+import org.hibernate.validator.constraints.UniqueElements;
+import org.hibernate.validator.internal.constraintvalidators.hv.UniqueElementsValidator;
 
 import javax.persistence.Lob;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor @AllArgsConstructor
-@UbicacionValueMatch.List({
-        @UbicacionValueMatch(
-                ubicacionField = "ubicacion",
-                message = "{estacion.ubicacion.pattern}"
-        )
-})
+
+@UbicacionValueMatch(
+        ubicacionField = "ubicacion",
+        message = "{estacion.ubicacion.pattern}"
+)
+@AperturaRegistroValueMatch(
+        fechaAperturaField= "fechaApertura",
+
+        message = "La fecha de apertura no puede ser posterior a la fecha de registro"
+)
+
+@EstacionUniqueValueMatch(
+        ubicacionField = "ubicacion",
+
+        message = "No se pueden crear dos Estaciones de Servicio con la misma ubicacion"
+)
+
+
+
+
 public class CreatedEstacionDTO {
 
     @NotNull(message = "{estacion.nombre.null}")
@@ -24,6 +43,7 @@ public class CreatedEstacionDTO {
     private String marca;
 
     @NotNull(message = "{estacion.ubicacion.null}")
+
     //@Pattern(regexp = "^([-+]?\\d{1,2}[.]\\d+),\\s*([-+]?\\d{1,3}[.]\\d+)$",message = "{estacion.ubicacion.pattern}")
     private String ubicacion;
 
@@ -48,6 +68,8 @@ public class CreatedEstacionDTO {
 
     @Past
     private LocalDateTime fechaApertura;
+
+
 
 
 }

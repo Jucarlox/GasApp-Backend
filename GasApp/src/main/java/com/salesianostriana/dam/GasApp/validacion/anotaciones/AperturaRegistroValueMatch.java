@@ -1,6 +1,6 @@
 package com.salesianostriana.dam.GasApp.validacion.anotaciones;
 
-
+import com.salesianostriana.dam.GasApp.validacion.validadores.AperturaRegistroValueMatchValidator;
 import com.salesianostriana.dam.GasApp.validacion.validadores.UbicacionValueMacthValidator;
 
 import javax.validation.Constraint;
@@ -10,15 +10,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = UbicacionValueMacthValidator.class)
+@Constraint(validatedBy = AperturaRegistroValueMatchValidator.class)
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UbicacionValueMatch {
-    String message() default "La ubicacion no tiene altitud o latitud correspondientes";
+public @interface AperturaRegistroValueMatch {
+    String message() default "La fecha de apertura no puede ser posterior a la fecha de registro";
     Class <?> [] groups() default {};
     Class <? extends Payload> [] payload() default {};
 
-    String ubicacionField();
+    String fechaAperturaField();
+
 
 
 }

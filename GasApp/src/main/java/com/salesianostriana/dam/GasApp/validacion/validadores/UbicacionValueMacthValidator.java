@@ -7,7 +7,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Pattern;
 
-public class UbicacionValueMacthValidator  implements ConstraintValidator<UbicacionValueMatch, Object> {
+public class UbicacionValueMacthValidator implements ConstraintValidator<UbicacionValueMatch, Object> {
 
     private String ubicacionField;
 
